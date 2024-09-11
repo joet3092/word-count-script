@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Count</title>
+</head>
+<body>
+  <h1>Welcome to the Word Count Page</h1>
+  <p>Content on this page will be analyzed for word count.</p>
+  
+  <script>
+    function countWords() {
+      const text = document.body.innerText || document.body.textContent;
+      const words = text.split(/\s+/).filter(Boolean);
+      return words.length;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const wordCount = countWords();
+      const footer = document.createElement('div');
+      footer.style.position = 'fixed';
+      footer.style.bottom = '0';
+      footer.style.left = '0';
+      footer.style.backgroundColor = 'white';
+      footer.style.padding = '10px';
+      footer.style.borderTop = '1px solid black';
+      footer.textContent = `Word count: ${wordCount}`;
+      document.body.appendChild(footer);
+    });
+  </script>
+</body>
+</html>
